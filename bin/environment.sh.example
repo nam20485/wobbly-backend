@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /bin/sh
 
 export DOCKER_IMAGE=wobbly-backend-image
 export DJANGO_SECRET_KEY=
