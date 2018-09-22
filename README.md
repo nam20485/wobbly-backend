@@ -1,7 +1,5 @@
 # wobbly-backend
 
-description
-
 ## Directions
 
 ### Fill in Django secret key
