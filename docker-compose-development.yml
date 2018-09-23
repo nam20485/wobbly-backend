@@ -8,7 +8,7 @@ services:
   wobbly-backend-service:
     build:
       context: .
-      dockerfile: DOCKERFILE.app
+      dockerfile: DOCKERFILE
     image: $DOCKER_IMAGE
     command: bin/docker-entrypoint.sh
     volumes:

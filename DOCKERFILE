@@ -2,6 +2,17 @@ FROM python:3.7.0-stretch
 MAINTAINER Nathan Miller <nmiller217@gmail.com>
 ENV PYTHONUNBUFFERED 1
 
+RUN apt-get update
+
+RUN apt-get install -qqy --no-install-recommends \
+    apt-utils
+
+RUN apt-get install -qqy --no-install-recommends \
+    postgresql-9.6 \
+    postgresql-9.6-pgrouting
+    
+RUN apt-get clean
+
 # create and populate /code
 RUN mkdir /code
 WORKDIR /code
