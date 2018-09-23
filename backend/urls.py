@@ -19,6 +19,8 @@ from django.conf.urls import url, include
 from django.contrib.auth.models import User
 from rest_framework import routers, serializers, viewsets
 from rest_framework_swagger.views import get_swagger_view
+from rest_framework.schemas import get_schema_view
+from rest_framework.documentation import include_docs_urls
 
 
 # Serializers define the API representation.
@@ -36,17 +38,19 @@ class UserViewSet(viewsets.ModelViewSet):
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
 
-schema_view = get_swagger_view(title='Pastebin API')
+swagger_view = get_swagger_view(title='Pastebin API')
 
-# Wire up our API using automatic URL routing.
-# Additionally, we include login URLs for the browsable API.
+schema_view = get_schema_view(title='Pastebin API')
+
 urlpatterns = [
     # DRF
     url(r'^', include(router.urls)),
+    url(r'^schema/$', schema_view),
+    url(r'^docs/', include_docs_urls(title='Pastebin API')),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 
     # swagger
-    url(r'^swagger/', schema_view),
+    url(r'^swagger/', swagger_view),
     
     # admin interface
     url(r'^admin/', admin.site.urls),
