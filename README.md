@@ -7,9 +7,9 @@
 `$  mv bin/environment.sh.example bin/environment.sh`
 
 ```sh
-bin/environment.sh:
+#bin/environment.sh:
 
-#! /bin/sh
+#! /bin/bash
 
 export DOCKER_IMAGE=wobbly-backend-image
 export DJANGO_SECRET_KEY= <Django secret key    # (generate <= 32 characters)>
@@ -26,10 +26,10 @@ export DEBUG=True
 
 ### Build Docker image
 
-`$ bin/build-docker-image.sh`
+`$ bin/build-docker.sh -d`
 
 ### Start Docker image
 
-`$ bin/start-docker-image.sh`
+`$ bin/start-docker.sh -d`
 
 Once it starts up the IP address and port will be displayed. Opening a browser to the address  will connect you sto the DJango server.
