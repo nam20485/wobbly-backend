@@ -38,15 +38,15 @@ class UserViewSet(viewsets.ModelViewSet):
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
 
-swagger_view = get_swagger_view(title='Pastebin API')
+swagger_view = get_swagger_view(title='Wobbly API')
 
-schema_view = get_schema_view(title='Pastebin API')
+schema_view = get_schema_view(title='Wobbly API')
 
 urlpatterns = [
     # DRF
     url(r'^', include(router.urls)),
     url(r'^schema/$', schema_view),
-    url(r'^docs/', include_docs_urls(title='Pastebin API')),
+    url(r'^docs/', include_docs_urls(title='Wobbly API')),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 
     # swagger
@@ -54,4 +54,7 @@ urlpatterns = [
     
     # admin interface
     url(r'^admin/', admin.site.urls),
+
+    # user accounts
+    url(r'^accounts/', include('django.contrib.auth.urls')),
 ]

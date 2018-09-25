@@ -1,0 +1,24 @@
+sudo: required
+
+language: python
+python:
+  - "3.6"
+
+services:
+  - docker
+
+install:
+  - pip install --upgrade awscli
+
+script:
+  - bin/build-docker.sh -p
+  
+
+after_success:
+  - bin/start-docker.sh -p
+  #- bin/deploy.sh
+
+# notifications:
+#   slack:
+#     rooms:
+#       - hackoregon2018:0hiZjZlexw6dfsIDpN4SsXls#disaster-resilience  
