@@ -34,4 +34,4 @@ export DEBUG=True
 
 `$ bin/start-docker.sh -d`
 
-Once it starts up the IP address and port will be displayed. Opening a browser to the address  will connect you sto the DJango server.
+Once it starts up the IP address and port will be displayed. Opening a browser to the address will connect you to the DJango server.
