@@ -4,7 +4,7 @@
 
 ### Fill in Django secret key
 
-`$  mv bin/environment.sh.example bin/environment.sh`
+Update the `bin/environment.sh.example` script file with a secret key
 
 ```sh
 #bin/environment.sh:
@@ -15,6 +15,8 @@ export DOCKER_IMAGE=wobbly-backend-image
 export DJANGO_SECRET_KEY= <Django secret key    # (generate <= 32 characters)>
 export DEBUG=True
 ```
+
+`$  mv bin/environment.sh.example bin/environment.sh`
 
 ### Make scripts executable
 
