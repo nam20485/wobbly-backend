@@ -12,7 +12,7 @@ Update the `bin/environment.sh.example` script file with a secret key
 #! /bin/bash
 
 export DOCKER_IMAGE=wobbly-backend-image
-export DJANGO_SECRET_KEY= <Django secret key    # (generate <= 32 characters)>
+export DJANGO_SECRET_KEY= <Add Django secret key here    # (generate <= 32 characters)>
 export DEBUG=True
 ```
 
