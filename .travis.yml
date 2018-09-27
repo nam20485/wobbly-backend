@@ -11,8 +11,9 @@ services:
 #  - pip install --upgrade awscli
 
 script:
-  - bin/build-docker.sh -d
-  #- bin/test.sh -p
+  - bin/build-docker.sh -p
+  - bin/test.sh -p
+  - bin/start-docker.sh -p
 
 after_success:
-  - bin/start-docker.sh -d
+  - bin/deploy.sh -p
