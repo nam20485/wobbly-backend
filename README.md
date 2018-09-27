@@ -32,4 +32,15 @@ export DEBUG=True
 
 `$ bin/start-docker.sh -d`
 
-Once it starts up the IP address and port will be displayed. Opening a browser to the address  will connect you sto the DJango server.
+Once it starts up the IP address and port will be displayed. Opening a browser to the address will connect you sto the Django server. 
+
+Ctrl-C can be used to gracefully shutdown the service.
+
+### REST API
+
+When running, the server provides the following URLs:
+
+1. REST API - http://0.0.0.0:8080/
+2. Schema - http://0.0.0.0:8080/schema
+2. Swagger-ified REST API - http://0.0.0.0:8080/swagger
+3. REST API documentation - http://0.0.0.0:8080/docs
