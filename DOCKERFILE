@@ -1,4 +1,4 @@
-FROM python:3.7.0-stretch
+FROM python:3.6-jessie
 MAINTAINER Nathan Miller <nmiller217@gmail.com>
 ENV PYTHONUNBUFFERED 1
 
