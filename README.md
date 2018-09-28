@@ -4,7 +4,7 @@
 
 ### Fill in Django secret key
 
-`$  mv bin/environment.sh.example bin/environment.sh`
+Update the `bin/environment.sh.example` script file with a secret key
 
 ```sh
 #bin/environment.sh:
@@ -12,9 +12,11 @@
 #! /bin/bash
 
 export DOCKER_IMAGE=wobbly-backend-image
-export DJANGO_SECRET_KEY= <Django secret key    # (generate <= 32 characters)>
+export DJANGO_SECRET_KEY= <Add Django secret key here    # (generate <= 32 characters)>
 export DEBUG=True
 ```
+
+`$  mv bin/environment.sh.example bin/environment.sh`
 
 ### Make scripts executable
 
@@ -32,7 +34,8 @@ export DEBUG=True
 
 `$ bin/start-docker.sh -d`
 
-Once it starts up the IP address and port will be displayed. Opening a browser to the address will connect you sto the Django server. 
+=======
+Once it starts up the IP address and port will be displayed. Opening a browser to the address will connect you sto the Django server.
 
 Ctrl-C can be used to gracefully shutdown the service.
 
@@ -45,3 +48,4 @@ When running, the server provides the following URLs:
 2. Swagger-ified REST API - http://0.0.0.0:8000/swagger
 3. REST API documentation - http://0.0.0.0:8000/docs
 4. (account login views) - http://0.0.0.0:8000/account/...
+
