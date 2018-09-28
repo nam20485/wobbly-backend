@@ -40,7 +40,8 @@ Ctrl-C can be used to gracefully shutdown the service.
 
 When running, the server provides the following URLs:
 
-1. REST API - http://0.0.0.0:8080/
-2. Schema - http://0.0.0.0:8080/schema
-2. Swagger-ified REST API - http://0.0.0.0:8080/swagger
-3. REST API documentation - http://0.0.0.0:8080/docs
+1. REST API - http://0.0.0.0:8000/
+2. Schema - http://0.0.0.0:8000/schema
+2. Swagger-ified REST API - http://0.0.0.0:8000/swagger
+3. REST API documentation - http://0.0.0.0:8000/docs
+4. (account login views) - http://0.0.0.0:8000/account/...

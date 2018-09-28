@@ -18,7 +18,7 @@
 #       range.
 #
 
-bind = ':8080'
+bind = ':8000'
 backlog = 2048
 
 #
