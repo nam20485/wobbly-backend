@@ -18,10 +18,10 @@ WORKDIR /code
 
 RUN pip install --upgrade pip
 
-COPY /requirements.txt /code/
+COPY /requirements.txt .
 RUN pip install -r requirements.txt
 
 COPY . /code/
 
-RUN chmod +x /code/bin/docker-entrypoint.sh
-RUN chmod +x /code/bin/test-docker-entrypoint.sh
+RUN chmod +x bin/docker-entrypoint.sh
+RUN chmod +x bin/test-docker-entrypoint.sh
