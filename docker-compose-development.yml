@@ -1,5 +1,6 @@
 version: '3.4' 
 services:
+
   wobbly-backend-db:
     image: postgres
     ports:
@@ -10,7 +11,7 @@ services:
       context: .
       dockerfile: DOCKERFILE
     image: $DOCKER_IMAGE
-    command: bin/docker-entrypoint.sh
+    command: bash bin/docker-entrypoint.sh
     volumes:
       - .:/code
     ports:

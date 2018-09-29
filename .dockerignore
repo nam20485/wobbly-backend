@@ -1,3 +1,4 @@
 *.sqlite3
 *.code-workspace
 .gitignore
+staticfiles/
