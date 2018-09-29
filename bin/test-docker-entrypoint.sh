@@ -1,5 +1,6 @@
 #!/bin/bash
 
-python -Wall manage.py collectstatic --noinput
+#python -Wall manage.py collectstatic --noinput
 
-pytest
+#pytest
+python manage.py test
