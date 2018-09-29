@@ -1,0 +1,19 @@
+sudo: required
+
+language: python
+python:
+  - "3.6"
+
+services:
+  - docker
+
+#install:
+#  - pip install --upgrade awscli
+
+script:
+  - bin/build-docker.sh -p
+  - bin/test.sh -p
+  - bin/start-docker.sh -p
+
+after_success:
+  - bin/deploy.sh -p
