@@ -23,9 +23,9 @@ Current releases are listed here:
 
 import json
 import os
-from io import StringIO
+import StringIO
 import sys
-import urllib.request, urllib.error, urllib.parse
+import urllib2
 import zipfile
 
 _SDK_URL = (
@@ -34,7 +34,7 @@ _SDK_URL = (
 
 def get_gae_versions():
     try:
-        version_info_json = urllib.request.urlopen(_SDK_URL).read()
+        version_info_json = urllib2.urlopen(_SDK_URL).read()
     except:
         return {}
     try:
@@ -60,14 +60,14 @@ def get_sdk_urls(sdk_versions):
 
 def main(argv):
     if len(argv) > 2:
-        print(('Usage: {} [<destination_dir>]'.format(argv[0])))
+        print('Usage: {} [<destination_dir>]'.format(argv[0]))
         return 1
     dest_dir = argv[1] if len(argv) > 1 else '.'
     if not os.path.exists(dest_dir):
         os.makedirs(dest_dir)
 
     if os.path.exists(os.path.join(dest_dir, 'google_appengine')):
-        print(('GAE SDK already installed at {}, exiting.'.format(dest_dir)))
+        print('GAE SDK already installed at {}, exiting.'.format(dest_dir))
         return 0
 
     sdk_versions = get_gae_versions()
@@ -77,18 +77,18 @@ def main(argv):
     sdk_urls = get_sdk_urls(sdk_versions)
     for sdk_url in sdk_urls:
         try:
-            sdk_contents = StringIO.StringIO(urllib.request.urlopen(sdk_url).read())
+            sdk_contents = StringIO.StringIO(urllib2.urlopen(sdk_url).read())
             break
         except:
             pass
     else:
-        print(('Could not read SDK from any of {}'.format(sdk_urls)))
+        print('Could not read SDK from any of {}'.format(sdk_urls))
         return 1
     sdk_contents.seek(0)
     try:
         zip_contents = zipfile.ZipFile(sdk_contents)
         zip_contents.extractall(dest_dir)
-        print(('GAE SDK Installed to {}.'.format(dest_dir)))
+        print('GAE SDK Installed to {}.'.format(dest_dir))
     except:
         print('Error extracting SDK contents')
         return 1
