@@ -20,7 +20,6 @@ before_install:
   - gcloud auth activate-service-account --key-file client-secret.json
 
 install:
-  - gcloud config set project continuous-deployment-python
+  - gcloud config set project wobbly-backend
   - gcloud -q components update gae-python
 
-  
