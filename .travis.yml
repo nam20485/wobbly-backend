@@ -4,9 +4,9 @@ python:
   - '3.6'
 services:
   - docker
-# cache:
-#   directories:
-#   - "$HOME/google-cloud-sdk/"
+cache:
+   directories:
+   - "$HOME/google-cloud-sdk/"
 env:
   - GAE_PYTHONPATH=${HOME}/.cache/google_appengine PATH=$PATH:${HOME}/google-cloud-sdk/bin PYTHONPATH=${PYTHONPATH}:${GAE_PYTHONPATH} CLOUDSDK_CORE_DISABLE_PROMPTS=1
 before_install:
