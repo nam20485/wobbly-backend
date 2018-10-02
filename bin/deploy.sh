@@ -18,6 +18,8 @@ if [ -z "$TRAVIS_PULL_REQUEST" ] || [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
         mkdir -p lib
         gcloud auth activate-service-account --key-file client-secret.json
 
+        gcloud auth configure-docker
+
         gcloud config set project wobbly-backend
         gcloud -q components update gae-python
         
@@ -25,15 +27,15 @@ if [ -z "$TRAVIS_PULL_REQUEST" ] || [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
 
         # tag with branch and travis build number then push
         TAG=travis-buildnum-"$TRAVIS_BUILD_NUMBER"
-        echo Tagging with "$TAG"
-        docker tag "$DOCKER_IMAGE":latest "$REMOTE_DOCKER_PATH":"$TAG"    
-        docker push "$REMOTE_DOCKER_PATH":"$TAG"
+        # echo Tagging with "$TAG"
+        # docker tag "$DOCKER_IMAGE":latest "$REMOTE_DOCKER_PATH":"$TAG"    
+        # docker push "$REMOTE_DOCKER_PATH":"$TAG"
 
-        # tag with "latest" then push
-        TAG=latest
-        echo Tagging with "$TAG"
-        docker tag "$DOCKER_IMAGE":latest "$REMOTE_DOCKER_PATH":"$TAG"
-        docker push "$REMOTE_DOCKER_PATH":"$TAG"
+        # # tag with "latest" then push
+        # TAG=latest
+        # echo Tagging with "$TAG"
+        # docker tag "$DOCKER_IMAGE":latest "$REMOTE_DOCKER_PATH":"$TAG"
+        # docker push "$REMOTE_DOCKER_PATH":"$TAG"
     
     #else
     #    echo "Skipping deploy because branch is not master"
