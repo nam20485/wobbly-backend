@@ -6,13 +6,11 @@ if [ -z "$TRAVIS_PULL_REQUEST" ] || [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
     # Push only if we're testing the master branch
     #if [ "$TRAVIS_BRANCH" == "master" ]; then
 
-        # remove until such time as anybody can remember why it is here
-        # export PATH=$PATH:$HOME/.local/binw
-
-        echo Getting the ECR login...
-        eval $(aws ecr get-login --no-include-email --region $AWS_DEFAULT_REGION)
-
+        
+        
         REMOTE_DOCKER_PATH="$DOCKER_REPO"/"$DOCKER_REPO_NAMESPACE"/"$DOCKER_IMAGE"
+
+        TRAVIS_BUILD_NUMBER=0
         
         # tag with branch and travis build number then push
         TAG=travis-buildnum-"$TRAVIS_BUILD_NUMBER"

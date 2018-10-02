@@ -3,3 +3,6 @@ db.sqlite3
 bin/environment.sh
 /staticfiles/
 package-lock.json
+client-secret.json
+api_key.py
+credentials.tar.gz
