@@ -18,10 +18,11 @@ if [ -z "$TRAVIS_PULL_REQUEST" ] || [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
         mkdir -p lib
         gcloud auth activate-service-account --key-file client-secret.json
 
-        gcloud auth configure-docker
-
         gcloud config set project wobbly-backend
-        gcloud -q components update gae-python
+        
+        #gcloud -q components update gae-python
+
+        gcloud beta auth configure-docker
         
         REMOTE_DOCKER_PATH="$DOCKER_REPO"/"$DOCKER_REPO_NAMESPACE"/"$DOCKER_IMAGE"
 
