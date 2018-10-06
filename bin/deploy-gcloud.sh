@@ -22,8 +22,10 @@ if [ -z "$TRAVIS_PULL_REQUEST" ] || [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
         
         #gcloud -q components update gae-python
 
-        docker-credential-gcr configure-docker
-        gcloud beta auth configure-docker
+        #docker-credential-gcr configure-docker
+        #gcloud beta auth configure-docker
+
+        cat client-secret.json | docker login -u _json_key --password-stdin https://gcr.io
         
         REMOTE_DOCKER_PATH="$DOCKER_REPO"/"$DOCKER_REPO_NAMESPACE"/"$DOCKER_IMAGE"
 
