@@ -10,6 +10,4 @@ cache:
 
 script:
   - bin/build.sh -p
-
-deploy:
   - bin/deploy-gcloud.sh

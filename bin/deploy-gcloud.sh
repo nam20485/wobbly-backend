@@ -25,6 +25,8 @@ if [ -z "$TRAVIS_PULL_REQUEST" ] || [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
         #docker-credential-gcr configure-docker
         #gcloud beta auth configure-docker
 
+        #gcloud auth print-access-token | docker login -u oauth2accesstoken --password-stdin https://gcr.io
+
         cat client-secret.json | docker login -u _json_key --password-stdin https://gcr.io
         
         REMOTE_DOCKER_PATH="$DOCKER_REPO"/"$DOCKER_REPO_NAMESPACE"/"$DOCKER_IMAGE"
