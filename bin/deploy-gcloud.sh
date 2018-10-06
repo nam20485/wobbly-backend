@@ -20,9 +20,9 @@ if [ -z "$TRAVIS_PULL_REQUEST" ] || [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
 
         gcloud config set project wobbly-backend
         
-        #gcloud auth print-access-token | docker login -u oauth2accesstoken --password-stdin $DOCKER_REPO
+        gcloud auth print-access-token | docker login -u oauth2accesstoken --password-stdin $DOCKER_REPO
 
-        cat client-secret.json | docker login -u _json_key --password-stdin $DOCKER_REPO
+        #cat client-secret.json | docker login -u _json_key --password-stdin $DOCKER_REPO
         
         REMOTE_DOCKER_PATH="$DOCKER_REPO"/"$DOCKER_REPO_NAMESPACE"/"$DOCKER_IMAGE"
 
