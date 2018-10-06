@@ -9,5 +9,5 @@ cache:
    - "$HOME/google-cloud-sdk/"
 
 script:
-  - bin/build.sh -p
+  - bin/build-docker.sh -p
   - bin/deploy-gcloud.sh
