@@ -11,4 +11,6 @@ cache:
 script:
   - bin/build-docker.sh -p
   - bin/test.sh -p
+
+after_success:
   - bin/deploy-gcloud.sh
