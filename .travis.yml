@@ -7,6 +7,9 @@ cache:
    directories:
    - "$HOME/google-cloud-sdk/"
 
+install:
+  - bin/install-gcloud-sdk.sh
+
 script:
   - bin/build-docker.sh -p
   - bin/test.sh -p
