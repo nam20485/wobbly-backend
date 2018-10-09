@@ -7,6 +7,7 @@ cache:
 
 install:
   - bin/install-gcloud-sdk.sh
+  - bin/install-kubectl.sh
 
 script:
   - bin/build-docker.sh -p
