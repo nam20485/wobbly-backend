@@ -11,6 +11,8 @@ services:
       - .:/code
     ports:
       - "8000:8000"
+    logging:
+      driver: gcplogs
     environment:
       - DJANGO_SECRET_KEY
       - POSTGRES_USER
