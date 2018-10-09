@@ -18,5 +18,5 @@ services:
       - POSTGRES_HOST
       - POSTGRES_PORT
       - POSTGRES_PASSWORD
-    #  logging:
-    #   driver: gcplogs
+    logging:
+      driver: gcplogs
