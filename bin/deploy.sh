@@ -6,7 +6,7 @@ if [ -z "$TRAVIS_PULL_REQUEST" ] || [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
     # Push only if we're testing the master branch
     #if [ "$TRAVIS_BRANCH" == "master" ]; then
         
-        source bin/archive-gcloud.sh
+        source bin/docker-push.sh
         bin/provision.sh
 
    #else

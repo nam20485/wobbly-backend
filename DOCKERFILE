@@ -3,20 +3,17 @@ MAINTAINER Nathan Miller <nmiller217@gmail.com>
 ENV PYTHONUNBUFFERED 1
 
 RUN apt-get update
-
-RUN apt-get install -qqy --no-install-recommends apt-utils=1.4.8
-
-RUN apt-get install -qqy --no-install-recommends postgresql-client-9.6=9.6.10-0+deb9u1
-    
+RUN apt-get install -qqy --no-install-recommends \
+    apt-utils=1.4.8 \
+    postgresql-client-9.6=9.6.10-0+deb9u1
 RUN apt-get clean
 
-# create and populate /code
 RUN mkdir /code
 WORKDIR /code 
 
 RUN pip install --upgrade pip
 
-COPY /requirements.txt .
+COPY requirements.txt .
 RUN pip install -r requirements.txt
 
 COPY . /code/
