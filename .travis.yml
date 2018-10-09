@@ -6,7 +6,6 @@ install:
   - bin/install-kubectl.sh
 
 script:
-  - bin/authenticate-gcloud.sh
   - bin/build-docker.sh -p
   #- bin/test.sh -p
 

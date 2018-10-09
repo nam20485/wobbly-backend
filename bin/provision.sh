@@ -1,7 +1,7 @@
 #! /bin/bash
 
 export CLUSTER_NAME="wobbly-backend-cluster"
-export DEPLOYMENT_NAME="wobbly-backend-app"
+export DEPLOYMENT_NAME="wobbly-backend-deployment"
 
 # create kubernetes cluster
 gcloud container clusters create $CLUSTER_NAME

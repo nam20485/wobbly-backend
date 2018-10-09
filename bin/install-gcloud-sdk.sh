@@ -2,13 +2,11 @@
 
 export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"
 
-sudo apt-get update
-sudo apt-get install -qqy --no-install-recommends apt-transport-https=1.12.0
-
 echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
 curl -s -S https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
 
 sudo apt-get update -qqy
+sudo apt-get install -qqy --no-install-recommends apt-transport-https
 sudo apt-get install -qqy --no-install-recommends google-cloud-sdk=219.0.1-0
 
 #export GAE_PYTHONPATH=${HOME}/.cache/google_appengine 
