@@ -13,4 +13,4 @@ script:
   - bin/test.sh -p
 
 after_success:
-  - bin/deploy-gcloud.sh
+  - bin/deploy.sh
