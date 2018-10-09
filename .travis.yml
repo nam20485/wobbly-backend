@@ -2,12 +2,11 @@ services:
   - docker
 
 install:
-  - bin/install-gcloud-sdk.sh
-  - bin/install-kubectl.sh
+  - bin/install-tools.sh
 
 script:
   - bin/build-docker.sh -p
-  #- bin/test.sh -p
+  - bin/test.sh -p
 
 after_success:
   - bin/deploy.sh
