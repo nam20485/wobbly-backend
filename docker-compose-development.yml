@@ -1,4 +1,4 @@
-version: '3.4' 
+version: '3.7' 
 services:
 
   wobbly-backend-db:
@@ -20,7 +20,7 @@ services:
       - wobbly-backend-db
     environment:
       - DJANGO_SECRET_KEY
-      - DEBUG
+      - DEBUG=True
       - POSTGRES_USER=postgres
       - POSTGRES_NAME=postgres
       - POSTGRES_HOST=wobbly-backend-db
