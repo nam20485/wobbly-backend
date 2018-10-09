@@ -1,11 +1,6 @@
 version: '3.4' 
 services:
 
-  wobbly-backend-db:
-    image: postgres
-    ports:
-      - "5432:5432"
-
   wobbly-backend-service:
     build:
       context: .
@@ -16,12 +11,17 @@ services:
       - .:/code
     ports:
       - "8000:8000"
-    depends_on:
-      - wobbly-backend-db
     environment:
       - DJANGO_SECRET_KEY
       - DEBUG=True
       - POSTGRES_USER=postgres
       - POSTGRES_NAME=postgres
       - POSTGRES_HOST=wobbly-backend-db
-      - POSTGRES_PORT=5432
+      - POSTGRES_PORT=5432    
+    depends_on:
+      - wobbly-backend-db   
+
+  wobbly-backend-db:
+    image: postgres
+    ports:
+      - "5432:5432"

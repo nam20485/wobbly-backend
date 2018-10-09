@@ -1,19 +1,19 @@
 FROM python:3.7.0-stretch
-MAINTAINER Nathan Miller <nmiller217@gmail.com>
 ENV PYTHONUNBUFFERED 1
 
-RUN apt-get update
-RUN apt-get install -qqy --no-install-recommends \
-    apt-utils=1.4.8 \
-    postgresql-client-9.6=9.6.10-0+deb9u1
-RUN apt-get clean
+RUN apt-get update \
+    && \
+    apt-get install -qqy --no-install-recommends \
+        apt-utils=1.4.8 \
+        postgresql-client-9.6=9.6.10-0+deb9u1 \
+    && \
+    apt-get clean
 
 RUN mkdir /code
 WORKDIR /code 
 
-RUN pip install --upgrade pip
-
 COPY requirements.txt .
-RUN pip install -r requirements.txt
+RUN pip install --upgrade pip && \
+    pip install -r requirements.txt
 
 COPY . /code/

@@ -10,9 +10,7 @@ services:
     volumes:
       - .:/code
     ports:
-      - "8000:8000"
-    logging:
-      driver: gcplogs
+      - "8000:8000"    
     environment:
       - DJANGO_SECRET_KEY
       - POSTGRES_USER
@@ -20,3 +18,5 @@ services:
       - POSTGRES_HOST
       - POSTGRES_PORT
       - POSTGRES_PASSWORD
+    #  logging:
+    #   driver: gcplogs

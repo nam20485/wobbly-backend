@@ -1,6 +1,6 @@
 #! /bin/bash
 
-SLEEP_SECONDS=1
+SLEEP_SECONDS=3
 
 >&2 echo "Checking Postgres status..."
 

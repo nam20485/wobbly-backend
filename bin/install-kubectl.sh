@@ -6,5 +6,4 @@ curl -s -S https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key 
 echo "deb https://apt.kubernetes.io/ $KUBECTL_REPO main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
 
 sudo apt-get update -qqy
-sudo apt-get install -qqy --no-install-recommends apt-transport-https
-sudo apt-get install -qqy --no-install-recommends kubectl=1.12.0-00
+sudo apt-get install -qqy --no-install-recommends apt-transport-https kubectl=1.12.0-00
