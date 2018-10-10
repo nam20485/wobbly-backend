@@ -2,7 +2,7 @@
 
 export CLUSTER_NAME="wobbly-backend-cluster"
 export DEPLOYMENT_NAME="wobbly-backend-app"
-export COMPUTE_ZONE="us-west2-a"
+export COMPUTE_ZONE="us-west2-b"
 
 gcloud config set compute/zone $COMPUTE_ZONE    
 
