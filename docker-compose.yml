@@ -12,11 +12,11 @@ services:
     ports:
       - "8000:8000"    
     environment:
-      - DJANGO_SECRET_KEY
       - POSTGRES_USER
       - POSTGRES_NAME
       - POSTGRES_HOST
       - POSTGRES_PORT
       - POSTGRES_PASSWORD
-    logging:
-      driver: gcplogs
+      - DJANGO_SECRET_KEY
+    #logging:
+    #  driver: gcplogs
