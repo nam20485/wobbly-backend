@@ -10,6 +10,6 @@ tar -xzf credentials.tar.gz
 mkdir -p lib
 
 gcloud auth activate-service-account --key-file client-secret.json --verbosity="info"
-#gcloud config set project $GCLOUD_PROJECT
+gcloud config set project $GCLOUD_PROJECT
 gcloud config set compute/zone $COMPUTE_ZONE --verbosity="info"
 gcloud auth print-access-token --verbosity="info" | docker login -u oauth2accesstoken --password-stdin $DOCKER_REPO
