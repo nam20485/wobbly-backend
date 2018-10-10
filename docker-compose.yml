@@ -18,5 +18,5 @@ services:
       - POSTGRES_PORT
       - POSTGRES_PASSWORD
       - DJANGO_SECRET_KEY
-    #logging:
-    #  driver: gcplogs
+    logging:
+      driver: $LOGGING_DRIVER
