@@ -1,6 +1,6 @@
 #! /bin/bash
 
-export COMPUTE_ZONE="us-west1-a"
+export COMPUTE_ZONE="us-west2-a"
 export GCLOUD_PROJECT="wobbly-backend"
 
 export CLOUDSDK_CORE_DISABLE_PROMPTS=1
