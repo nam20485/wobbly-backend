@@ -1,8 +1,8 @@
 services:
   - docker
 
-install:
-  - bin/install-tools.sh
+#install:
+#  - bin/install-tools.sh
 
 script:
   - bin/build-docker.sh -p

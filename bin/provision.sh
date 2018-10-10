@@ -2,6 +2,9 @@
 
 export CLUSTER_NAME="wobbly-backend-cluster"
 export DEPLOYMENT_NAME="wobbly-backend-app"
+export COMPUTE_ZONE="us-west2-a"
+
+gcloud config set compute/zone $COMPUTE_ZONE    
 
 # create kubernetes cluster
 #gcloud container clusters create $CLUSTER_NAME
