@@ -10,7 +10,9 @@ services:
     volumes:
       - .:/code
     ports:
-      - "8000:8000"    
+      - "8000:8000"  
+    logging:
+      driver: $DOCKER_LOGGING  
     environment:
       - POSTGRES_USER
       - POSTGRES_NAME
@@ -18,5 +20,3 @@ services:
       - POSTGRES_PORT
       - POSTGRES_PASSWORD
       - DJANGO_SECRET_KEY
-    logging:
-      driver: $LOGGING_DRIVER
