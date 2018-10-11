@@ -9,7 +9,6 @@ docker tag "$DOCKER_IMAGE" "$REMOTE_DOCKER_PATH":"$TAG"
 docker push "$REMOTE_DOCKER_PATH":"$TAG"
 
 # tag with "latest" then push
-TAG=latest
-echo Tagging with "$TAG"
+echo Tagging with latest
 docker tag "$DOCKER_IMAGE" "$REMOTE_DOCKER_PATH"
 docker push "$REMOTE_DOCKER_PATH"
