@@ -50,7 +50,7 @@ urlpatterns = [
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 
     # swagger
-    url(r'^swagger/', swagger_view),
+    #url(r'^swagger/', swagger_view),
     
     # admin interface
     url(r'^admin/', admin.site.urls),
