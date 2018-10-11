@@ -16,7 +16,7 @@ gcloud container clusters get-credentials $CLUSTER_NAME --verbosity="info"
 #kubectl run $DEPLOYMENT_NAME --image $REMOTE_DOCKER_PATH --port 8000
 
 # update cluster's deployed image
-kubectl set image deployment/"$DEPLOYMENT_NAME" "$DEPLOYMENT_NAME"="$REMOTE_DOCKER_PATH":latest --v=4
+kubectl set image deployment/"$DEPLOYMENT_NAME" "$DOCKER_IMAGE"="$REMOTE_DOCKER_PATH":latest --v=4
 
 # expose service
 kubectl expose deployment $DEPLOYMENT_NAME --type LoadBalancer --port 8000 --target-port 8000 --v=4
