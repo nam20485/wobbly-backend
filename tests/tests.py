@@ -13,12 +13,12 @@ class RootEndpointTestCase(TestCase):
         response = self.client.get('/')
         assert response.status_code == status.HTTP_200_OK
 
-# class SwaggerRootEndpointTestCase(TestCase):
-#     def setUp(self):
-#         self.client = APIClient()
-#     def test_response(self):
-#         response = self.client.get('/swagger/')
-#         assert response.status_code == status.HTTP_200_OK
+class SwaggerRootEndpointTestCase(TestCase):
+    def setUp(self):
+        self.client = APIClient()
+    def test_response(self):
+        response = self.client.get('/swagger/')
+        assert response.status_code == status.HTTP_200_OK
 
 class DocsEndpointTestCase(TestCase):
     def setUp(self):
