@@ -47,7 +47,7 @@ urlpatterns = [
     url(r'^', include(router.urls)),
     url(r'^schema/$', schema_view),
     url(r'^docs/', include_docs_urls(title='Wobbly API')),
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^apiv1-auth/', include('rest_framework.urls', namespace='rest_framework')),
 
     # swagger
     url(r'^swagger/', swagger_view),
