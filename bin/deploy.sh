@@ -6,12 +6,13 @@ if [ -z "$TRAVIS_PULL_REQUEST" ] || [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
     # Push only if we're testing the staging or production branch
     if [ "$TRAVIS_BRANCH" == "staging" ] || [ "$TRAVIS_BRANCH" == "production" ]; then
 
-        export IMAGE_NAME="$DOCKER_IMAGE"-"$TRAVIS_BRANCH"
-        export CLUSTER_NAME="wobbly-backend-cluster"-"$TRAVIS_BRANCH"
-        export DEPLOYMENT_NAME="wobbly-backend-app"-"$TRAVIS_BRANCH"
+        export COMPUTE_ZONE="us-west1-a"
+        export GCLOUD_PROJECT="wobbly-app"
 
-        export COMPUTE_ZONE="us-west2-a"
-        
+        export IMAGE_NAME="$DOCKER_IMAGE"-"$TRAVIS_BRANCH"
+        export CLUSTER_NAME="$GCLOUD_PROJECT"-"backend-cluster"-"$TRAVIS_BRANCH"
+        export DEPLOYMENT_NAME="$GCLOUD_PROJECT"-"app"-"$TRAVIS_BRANCH"
+
         source bin/install-tools.sh
         source bin/authenticate-gcloud.sh
         source bin/docker-push.sh

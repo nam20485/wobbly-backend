@@ -13,7 +13,7 @@ while getopts ":dpb" opt; do
           docker run -it $DOCKER_IMAGE:latest -p 8000:8000 bin/docker-entrypoint.sh
           ;;
         b)
-          docker-compose -f docker-compose-development.yml run --entrypoint bash -p 8000:8000 wobbly-backend-service
+          docker-compose -f docker-compose-development.yml run --entrypoint bash -p 8000:8000 wobbly-app-backend-service
           ;;
         *)
           usage
@@ -25,7 +25,6 @@ done
 echo "Fixing ownership on created files"
 if [ `uname -s` = "Linux" ]
 then
-  ls -l
   echo "sudo chown -R `id -u $USER`:`id -g $USER` ."
   sudo chown -R `id -u $USER`:`id -g $USER` .
   ls -l

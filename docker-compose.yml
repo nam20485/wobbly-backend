@@ -1,7 +1,7 @@
 version: '3.4'
 services:
 
-  wobbly-backend-service:
+  wobbly-app-backend-service:
     build:
       context: .
       dockerfile: DOCKERFILE

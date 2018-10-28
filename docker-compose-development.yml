@@ -1,7 +1,7 @@
 version: '3.4' 
 services:
 
-  wobbly-backend-service:
+  wobbly-app-backend-service:
     build:
       context: .
       dockerfile: DOCKERFILE.development
@@ -15,12 +15,12 @@ services:
       - DJANGO_SECRET_KEY
       - POSTGRES_USER=postgres
       - POSTGRES_NAME=postgres
-      - POSTGRES_HOST=wobbly-backend-db
+      - POSTGRES_HOST=wobbly-app-backend-db
       - POSTGRES_PORT=5432    
     depends_on:
-      - wobbly-backend-db   
+      - wobbly-app-backend-db   
 
-  wobbly-backend-db:
+  wobbly-app-backend-db:
     image: postgres
     ports:
       - "5432:5432"
