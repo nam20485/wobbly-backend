@@ -3,8 +3,8 @@
 # Tag, Push and Deploy only if it's not a pull request
 if [ -z "$TRAVIS_PULL_REQUEST" ] || [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
 
-    # Push only if we're testing the master branch
-    if [ "$TRAVIS_BRANCH" == "develop" ]; then
+    # Push only if we're testing the staging or production branch
+    if [ "$TRAVIS_BRANCH" == "staging" ] || [ "$TRAVIS_BRANCH" == "production" ]; then
 
         export IMAGE_NAME="$DOCKER_IMAGE"-"$TRAVIS_BRANCH"
         export CLUSTER_NAME="wobbly-backend-cluster"-"$TRAVIS_BRANCH"
@@ -15,7 +15,7 @@ if [ -z "$TRAVIS_PULL_REQUEST" ] || [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
         source bin/provision.sh
 
    else
-       echo "Skipping deploy because branch is not master"
+       echo "Skipping deploy because branch is not staging or production"
    fi
 else
     echo "Skipping deploy because it's a pull request"
