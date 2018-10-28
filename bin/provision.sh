@@ -1,8 +1,5 @@
 #! /bin/bash -x
 
-export DEPLOYMENT_NAME="wobbly-backend-app"
-export COMPUTE_ZONE="us-west2-a"
-
 gcloud config set compute/zone $COMPUTE_ZONE
 
 # create kubernetes cluster
