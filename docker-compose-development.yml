@@ -4,9 +4,9 @@ services:
   wobbly-backend-service:
     build:
       context: .
-      dockerfile: DOCKERFILE
+      dockerfile: DOCKERFILE.development
     image: $DOCKER_IMAGE
-    command: bash bin/docker-entrypoint.sh
+    command: bash bin/docker-entrypoint-development.sh
     volumes:
       - .:/code
     ports:
