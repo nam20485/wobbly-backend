@@ -2,7 +2,11 @@ db.sqlite3
 *.pyc
 bin/environment.sh
 /staticfiles/
+*/staticfiles/
 package-lock.json
 client-secret.json
 api_key.py
 credentials.tar.gz
+.idea/
+.venv/
+.virtualenv/

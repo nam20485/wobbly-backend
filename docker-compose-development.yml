@@ -14,14 +14,4 @@ services:
     environment:
       - DJANGO_SECRET_KEY
       - DEBUG=True
-      - POSTGRES_USER=postgres
-      - POSTGRES_NAME=postgres
-      - POSTGRES_HOST=wobbly-backend-db
-      - POSTGRES_PORT=5432    
-    depends_on:
-      - wobbly-backend-db   
-
-  wobbly-backend-db:
-    image: postgres
-    ports:
-      - "5432:5432"
+      - DJANGO_SETTINGS_MODULE=backend.settings.dev

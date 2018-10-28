@@ -20,3 +20,4 @@ services:
       - POSTGRES_PORT
       - POSTGRES_PASSWORD
       - DJANGO_SECRET_KEY
+      - DJANGO_SETTINGS_MODULE=backend.settings.production
