@@ -6,8 +6,8 @@ if [ -z "$TRAVIS_PULL_REQUEST" ] || [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
     # Push only if we're testing the master branch
     if [ "$TRAVIS_BRANCH" == "develop" ]; then
 
-        export IMAGE_NAME=${DOCKER_IMAGE}-{$TRAVIS_BRANCH}
-        export CLUSTER_NAME="wobbly-backend-cluster"-${TRAVIS_BRANCH}
+        export IMAGE_NAME="$DOCKER_IMAGE"-"$TRAVIS_BRANCH"
+        export CLUSTER_NAME="wobbly-backend-cluster"-"$TRAVIS_BRANCH"
         
         source bin/install-tools.sh
         source bin/authenticate-gcloud.sh
