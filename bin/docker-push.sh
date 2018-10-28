@@ -1,8 +1,6 @@
 #! /bin/bash
 
-NAMESPACE="${DOCKER_REPO_NAMESPACE}"-"${2}"
-
-export REMOTE_DOCKER_PATH="${DOCKER_REPO}"/"${NAMESPACE}"/"${DOCKER_IMAGE}"
+export REMOTE_DOCKER_PATH="${DOCKER_REPO}"/"${NAMESPACE}"/"${2}"
 
 # tag with branch and travis build number then push
 export TAG="$TRAVIS_BUILD_NUMBER"
