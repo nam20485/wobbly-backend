@@ -8,8 +8,8 @@ if [ -z "$TRAVIS_PULL_REQUEST" ] || [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
         
         source bin/install-tools.sh
         source bin/authenticate-gcloud.sh
-        source bin/docker-push.sh
-        source bin/provision.sh
+        source bin/docker-push.sh $2
+        source bin/provision.sh $2
 
    #else
     #    echo "Skipping deploy because branch is not master"
