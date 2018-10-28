@@ -1,17 +1,19 @@
 #! /bin/bash
 
-usage() { echo "Usage: $0 [-d] for a development build, [-p] for a production build" 1>&2; exit 1; }
+usage() { echo "Usage: $0 [-d] for a development build, [-p] for a production build, [-b] for a development shell" 1>&2; exit 1; }
 
 if [ $# == 0 ]; then usage; fi
 
-while getopts ":dp" opt; do
+while getopts ":dpb" opt; do
     case "$opt" in
         d)
           docker-compose -f docker-compose-development.yml up
           ;;
         p)
           docker run -it $DOCKER_IMAGE:latest -p 8000:8000 bin/docker-entrypoint.sh
-          #docker-compose up
+          ;;
+        b)
+          docker-compose -f docker-compose-development.yml run --entrypoint bash -p 8000:8000 wobbly-backend-service
           ;;
         *)
           usage
@@ -19,8 +21,8 @@ while getopts ":dp" opt; do
     esac
 done
 
-# fix ownership
-echo "Fixing ownership on Linux"
+# fix ownership on created files
+echo "Fixing ownership on created files"
 if [ `uname -s` = "Linux" ]
 then
   ls -l

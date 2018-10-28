@@ -13,7 +13,6 @@ services:
       - "8000:8000"
     environment:
       - DJANGO_SECRET_KEY
-      - DEBUG=True
       - POSTGRES_USER=postgres
       - POSTGRES_NAME=postgres
       - POSTGRES_HOST=wobbly-backend-db
