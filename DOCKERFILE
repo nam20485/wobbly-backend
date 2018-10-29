@@ -3,12 +3,10 @@ ENV PYTHONUNBUFFERED 1
 EXPOSE 8000
 ENTRYPOINT ["bin/docker-entrypoint.sh"]
 
-RUN apt-get update \
-    && \
+RUN apt-get update && \
     apt-get install -qqy --no-install-recommends \
         apt-utils=1.4.8 \
-        postgresql-client-9.6=9.6.10-0+deb9u1 \
-    && \
+        postgresql-client-9.6=9.6.10-0+deb9u1 && \
     apt-get clean
 
 RUN mkdir /code
