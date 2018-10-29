@@ -12,7 +12,7 @@ gcloud container clusters get-credentials $CLUSTER_NAME
 #kubectl run $DEPLOYMENT_NAME --image $REMOTE_DOCKER_PATH --port 8000
 
 # update cluster's deployed image
-kubectl set image deployment/$DEPLOYMENT_NAME $DOCKER_IMAGE=$REMOTE_DOCKER_PATH:$TAG
+kubectl set image deployment/$DEPLOYMENT_NAME $IMAGE_NAME=$REMOTE_DOCKER_PATH:$TAG
 
 kubectl rollout status deployment/$DEPLOYMENT_NAME
 
