@@ -22,5 +22,5 @@ if [ -z "$TRAVIS_PULL_REQUEST" ] || [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
        echo "Skipping deploy because branch is not staging or production"
    fi
 else
-    echo "Skipping deploy because it's a pull request"
+    echo "Skipping deploy because it's a pull request" 
 fi
