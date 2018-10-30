@@ -10,8 +10,8 @@ if [ -z "$TRAVIS_PULL_REQUEST" ] || [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
         export GCLOUD_PROJECT="wobbly-app"
 
         export IMAGE_NAME="$DOCKER_IMAGE"-"$TRAVIS_BRANCH"
-        export CLUSTER_NAME="$GCLOUD_PROJECT"-"backend-cluster"-"$TRAVIS_BRANCH"
-        export DEPLOYMENT_NAME="$GCLOUD_PROJECT"-"backend-app"-"$TRAVIS_BRANCH"
+        export CLUSTER_NAME="backend-cluster"-"$TRAVIS_BRANCH"
+        export DEPLOYMENT_NAME="backend-app"-"$TRAVIS_BRANCH"
 
         source bin/install-tools.sh
         source bin/authenticate-gcloud.sh

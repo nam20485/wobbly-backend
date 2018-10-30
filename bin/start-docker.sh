@@ -13,7 +13,7 @@ while getopts ":dpb" opt; do
           docker run -it $DOCKER_IMAGE:latest -p 8000:8000 bin/docker-entrypoint.sh
           ;;
         b)
-          docker-compose -f docker-compose-development.yml run --entrypoint bash -p 8000:8000 wobbly-app-backend-service
+          docker-compose -f docker-compose-development.yml run --entrypoint bash -p 8000:8000 $DOCKER_SERVICE
           ;;
         *)
           usage

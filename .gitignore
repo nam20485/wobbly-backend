@@ -6,3 +6,4 @@ package-lock.json
 client-secret.json
 api_key.py
 credentials.tar.gz
+/.pytest_cache/
