@@ -13,48 +13,34 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url
 from django.contrib import admin
-from django.conf.urls import url, include
-from django.contrib.auth.models import User
-from rest_framework import routers, serializers, viewsets
+from django.conf.urls import url, include, re_path
+from rest_framework import routers
 from rest_framework_swagger.views import get_swagger_view
 from rest_framework.schemas import get_schema_view
 from rest_framework.documentation import include_docs_urls
 
-
-# Serializers define the API representation.
-class UserSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = User
-        fields = ('url', 'username', 'email', 'is_staff')
-
-# ViewSets define the view behavior.
-class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
+from apiv1 import views
 
 # Routers provide an easy way of automatically determining the URL conf.
 router = routers.DefaultRouter()
-router.register(r'users', UserViewSet)
 
 swagger_view = get_swagger_view(title='Wobbly API')
-
 schema_view = get_schema_view(title='Wobbly API')
 
 urlpatterns = [
     # DRF
-    url(r'^', include(router.urls)),
-    url(r'^schema/$', schema_view),
-    url(r'^docs/', include_docs_urls(title='Wobbly API')),
-    url(r'^apiv1-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^api/v1', include(router.urls)),
+    url(r'^api/v1/schema/$', schema_view),
+    url(r'^api/v1/docs/', include_docs_urls(title='Wobbly API')),
 
-    # swagger
-    url(r'^swagger/', swagger_view),
-    
-    # admin interface
+    # Custom paths that don't neatly fit DRF's automatic routing
+    # We don't want a list view of all users
+    re_path(r'^api/v1/users/<int:pk>', views.UserDetail.as_view()),
+
+    # Swagger
+    url(r'^api/v1/swagger/', swagger_view),
+
+    # Admin interface
     url(r'^admin/', admin.site.urls),
-
-    # user accounts
-    url(r'^accounts/', include('django.contrib.auth.urls')),
 ]
