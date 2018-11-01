@@ -11,6 +11,7 @@ services:
 #   apt: true
 
 script:
+  - curl ifconfig.co
   - bin/build-docker.sh -p
   - bin/test.sh -p
 
