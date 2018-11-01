@@ -2,6 +2,7 @@ db.sqlite3
 *.pyc
 bin/environment.sh
 /staticfiles/
+/backend/staticfiles/
 package-lock.json
 client-secret.json
 api_key.py
