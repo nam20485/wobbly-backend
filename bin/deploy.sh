@@ -6,11 +6,11 @@ if [ -z "$TRAVIS_PULL_REQUEST" ] || [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
     # Push only if we're testing the staging or production branch
     if [ "$TRAVIS_BRANCH" == "staging" ] || [ "$TRAVIS_BRANCH" == "production" ]; then
 
-        if [ "$TRAVIS_BRANCH" == "staging" ]; then
+        # if [ "$TRAVIS_BRANCH" == "staging" ]; then
             export COMPUTE_ZONE="us-west2-a"
-        elif [ "$TRAVIS_BRANCH" == "production" ] then
-            export COMPUTE_ZONE="us-west1-a"
-        fi
+        # elif [ "$TRAVIS_BRANCH" == "production" ] then
+        #     export COMPUTE_ZONE="us-west1-a"
+        # fi
         
         export GCLOUD_PROJECT="wobbly-app"
 
