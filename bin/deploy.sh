@@ -4,9 +4,8 @@
 if [ -z "$TRAVIS_PULL_REQUEST" ] || [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
 
     # Push only if we're testing the staging or production branch
-    if [ "$TRAVIS_BRANCH" == "staging" ] || [ "$TRAVIS_BRANCH" == "production" ]
-    then
-
+    if [ "$TRAVIS_BRANCH" == "staging" ] || [ "$TRAVIS_BRANCH" == "production" ]; then
+        
         if [ "$TRAVIS_BRANCH" == "staging" ]; then
             export COMPUTE_ZONE="us-west2-a"
         elif [ "$TRAVIS_BRANCH" == "production" ]; then
@@ -22,8 +21,8 @@ if [ -z "$TRAVIS_PULL_REQUEST" ] || [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
         source bin/install-tools.sh
         source bin/authenticate-gcloud.sh
         source bin/docker-push.sh
-        source bin/provision.sh
-
+        source bin/deploy-kube.sh
+        
    else
        echo "Skipping deploy because branch is not staging or production"
    fi
