@@ -17,11 +17,15 @@ if [ -z "$TRAVIS_PULL_REQUEST" ] || [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
         export IMAGE_NAME="$DOCKER_IMAGE"-"$TRAVIS_BRANCH"
         export CLUSTER_NAME="backend-cluster"-"$TRAVIS_BRANCH"
         export DEPLOYMENT_NAME="backend-app"-"$TRAVIS_BRANCH"
+        export SERVICE_NAME="backend-app-service"-"$TRAVIS_BRANCH"
 
         source bin/install-tools.sh
         source bin/authenticate-gcloud.sh
         source bin/push-docker.sh
         source bin/deploy-kube.sh
+
+        kubectl get service $SERVICE_NAME -o json 
+        export ENDPOINT="http://35.236.98.243:8000/"
 
    else
        echo "Skipping deploy because branch is not staging or production"

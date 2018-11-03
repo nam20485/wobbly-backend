@@ -7,3 +7,4 @@ script:
   - bin/test-docker.sh -p
   - bin/tag-git.sh
   - bin/deploy.sh
+  - bin/test-site.sh
