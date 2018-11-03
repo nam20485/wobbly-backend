@@ -4,6 +4,6 @@ services:
 script:
   - set -e
   - bin/build-docker.sh -p
-  - bin/test.sh -p
+  - bin/test-docker.sh -p
   - bin/tag.sh
   - bin/deploy.sh
