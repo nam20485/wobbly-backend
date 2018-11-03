@@ -7,3 +7,5 @@ client-secret.json
 api_key.py
 credentials.tar.gz
 /.pytest_cache/
+deployment.yaml
+bin/create-cluster.sh
