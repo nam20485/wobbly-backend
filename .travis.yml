@@ -2,6 +2,7 @@ services:
   - docker
 
 script:
-  - bin/build-docker.sh -p && \
-    bin/test.sh -p && \
-    bin/deploy.sh
+  - set -e
+  - bin/build-docker.sh -p
+  - bin/test.sh -p
+  - bin/deploy.sh
