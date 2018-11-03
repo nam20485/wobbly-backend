@@ -4,7 +4,7 @@
 if [ -z "$TRAVIS_PULL_REQUEST" ] || [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
 
     # Push only if we're testing the staging or production branch
-    if [ "$TRAVIS_BRANCH" == "staging" -o "$TRAVIS_BRANCH" == "production" ]
+    if [ "$TRAVIS_BRANCH" == "staging" ] || [ "$TRAVIS_BRANCH" == "production" ]
     then
 
         if [ "$TRAVIS_BRANCH" == "staging" ] then
