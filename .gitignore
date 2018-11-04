@@ -9,3 +9,6 @@ credentials.tar.gz
 /.pytest_cache/
 deployment.yaml
 bin/create-cluster.sh
+credentials/staging-secrets.yaml
+credentials/staging-secrets.yml
+credentials/production-secrets.yml
