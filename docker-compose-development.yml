@@ -2,25 +2,35 @@ version: '3.4'
 services:
 
   wobbly-app-backend-service:
+    image: $DOCKER_IMAGE
     build:
       context: .
       dockerfile: DOCKERFILE
-    image: $DOCKER_IMAGE
-    command: bash bin/docker-entrypoint.sh
-    volumes:
-      - .:/code
     ports:
       - "8000:8000"
+    volumes:
+      - .:/code
     environment:
       - DJANGO_SECRET_KEY
       - POSTGRES_USER=postgres
       - POSTGRES_NAME=postgres
       - POSTGRES_HOST=wobbly-app-backend-db
-      - POSTGRES_PORT=5432    
+      - POSTGRES_PORT=5432  
+      - DEBUG=True  
     depends_on:
-      - wobbly-app-backend-db   
+      - wobbly-app-backend-db
 
   wobbly-app-backend-db:
     image: postgres
     ports:
       - "5432:5432"
+
+  wobbly-app-nginx:
+    image: nginx:1.14.0
+    build:
+      context: .
+      dockerfile: DOCKERFILE.nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - wobbly-app-backend-service
