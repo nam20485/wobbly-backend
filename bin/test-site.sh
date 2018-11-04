@@ -1,3 +1,3 @@
 #! /bin/bash
 
-#curl http://35.236.98.243:8000  #$ENDPOINT
+#curl http://0.0.0.0:8000  #$ENDPOINT
