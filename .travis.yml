@@ -3,6 +3,7 @@ services:
 
 script:
   - set -e
+  - curl ifconfig.co
   - bin/build-docker.sh -p
   - bin/test-docker.sh -p
   - bin/tag-git.sh

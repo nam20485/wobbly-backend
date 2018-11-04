@@ -25,7 +25,7 @@ if [ -z "$TRAVIS_PULL_REQUEST" ] || [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
         source bin/deploy-kube.sh
 
         kubectl get service $SERVICE_NAME -o json 
-        export ENDPOINT="http://35.236.98.243:8000/"
+        export ENDPOINT="http://0.0.0.0:8000/"
 
    else
        echo "Skipping deploy because branch is not staging or production"
