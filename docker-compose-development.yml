@@ -13,17 +13,21 @@ services:
     environment:
       - DJANGO_SECRET_KEY
       - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=pw
       - POSTGRES_NAME=postgres
       - POSTGRES_HOST=wobbly-app-backend-db
-      - POSTGRES_PORT=5432  
+      - POSTGRES_PORT=5432 
       - DEBUG=True  
     depends_on:
       - wobbly-app-backend-db
 
   wobbly-app-backend-db:
-    image: postgres
+    image: postgres:9.6.10
     ports:
       - "5432:5432"
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: pw
 
   wobbly-app-nginx:
     image: nginx:1.14.0

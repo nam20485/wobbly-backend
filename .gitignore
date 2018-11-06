@@ -12,3 +12,6 @@ bin/create-cluster.sh
 credentials/staging-secrets.yaml
 credentials/staging-secrets.yml
 credentials/production-secrets.yml
+.vscode/settings.json
+.vscode/
+datamodel.graphql
