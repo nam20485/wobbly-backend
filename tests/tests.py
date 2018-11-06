@@ -9,9 +9,13 @@ from rest_framework import status
 class RootEndpointTestCase(TestCase):
     def setUp(self):
         self.client = APIClient()
+        models.WobblyUser.objects.create_user("test", "test@test.com", "test")
+        self.client.login(username="test", password="test")
     def test_list_response(self):
         response = self.client.get('/')
         assert response.status_code == status.HTTP_200_OK
+    def tearDown(self):
+        self.client.logout()
 
 class SwaggerRootEndpointTestCase(TestCase):
     def setUp(self):
