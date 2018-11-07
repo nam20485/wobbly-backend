@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_swagger',
     'api',
+    'graphene_django',
 ]
 
 MIDDLEWARE = [
@@ -139,16 +140,27 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
+"""
+REST Framework settings
+"""
+
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         # Authenticated users only
         'rest_framework.permissions.IsAuthenticated'
-        # Use Django's standard `django.contrib.auth` permissions,
-        # or allow read-only access for unauthenticated users.
+
+        # Use Django's standard `django.contrib.auth` permissions, or allow read-only access for unauthenticated users.
         #'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ],
      'DEFAULT_AUTHENTICATION_CLASSES': (
-        #'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
     ),
+}
+
+"""
+graphene framework settings
+"""
+
+GRAPHENE = {
+    'SCHEMA': 'api.graphql_schema.schema' # Where your Graphene schema lives
 }

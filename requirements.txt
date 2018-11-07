@@ -6,3 +6,4 @@ gunicorn==19.9.0
 whitenoise==4.1
 pytest-django==3.4.3
 pytest-xdist==1.23.2
+graphene-django==2.2.0
