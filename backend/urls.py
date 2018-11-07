@@ -37,6 +37,8 @@ urlpatterns = [
     # admin interface
     path('admin/', admin.site.urls),
 
+    path('accounts/', include('django.contrib.auth.urls')),
+
     # api app urls
     path('api/', include('api.urls')),
 
