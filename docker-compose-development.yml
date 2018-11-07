@@ -2,7 +2,7 @@ version: '3.4'
 services:
 
   wobbly-app-backend-service:
-    image: $DOCKER_IMAGE
+    image: $DOCKER_IMAGE:latest
     build:
       context: .
       dockerfile: DOCKERFILE
@@ -30,7 +30,7 @@ services:
       POSTGRES_PASSWORD: pw
 
   wobbly-app-nginx:
-    image: nginx:1.14.0
+    image: wobbly-app-backend-nginx
     build:
       context: .
       dockerfile: DOCKERFILE.nginx

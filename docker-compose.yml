@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: DOCKERFILE
-    image: $DOCKER_IMAGE
+    image: $DOCKER_IMAGE:latest
     command: bash bin/docker-entrypoint.sh
     volumes:
       - .:/code
@@ -20,3 +20,13 @@ services:
       - POSTGRES_PORT
       - POSTGRES_PASSWORD
       - DJANGO_SECRET_KEY
+
+  wobbly-app-nginx:
+    image: wobbly-app-backend-nginx
+    build:
+      context: .
+      dockerfile: DOCKERFILE.nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - wobbly-app-backend-service
