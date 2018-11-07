@@ -1,14 +1,16 @@
-from django.conf.urls import url, include
-from rest_framework import routers, serializers, viewsets
-from api import views
+from django.conf.urls import include, url
 from django.urls import path
-from api.views import SignUp, WobblyUserViewSet
 from graphene_django.views import GraphQLView
+from rest_framework import routers, serializers, viewsets
 
+from api import views
 
-# Routers provide an easy way of automatically determining the URL conf.
 router = routers.DefaultRouter()
-router.register(r'users', WobblyUserViewSet)
+router.register(r'users', views.WobblyUserViewSet)
+router.register(r'groups', views.WobblyGroupViewSet)
+router.register(r'posts', views.PostViewSet)
+router.register(r'comments', views.CommentViewSet)
+router.register(r'keywords', views.KeywordViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
