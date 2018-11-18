@@ -1,11 +1,13 @@
+"""
+Models
+"""
+
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 #from PIL import Image
 
 
-"""
-Text field length constants
-"""
+# Text field length constants
 MAX_POST_TITLE_LENGTH = 255
 MAX_KEYWORD_NAME_LENGTH = 255
 MAX_GROUP_NAME_LENGTH = 255
@@ -33,10 +35,11 @@ class WobblyUser(AbstractUser):
     def __str__(self):
         return self.email
 
-"""
-Custom (Wobbly)Group for users
-"""
+
 class WobblyGroup(models.Model):
+    """
+    Custom (Wobbly)Group for users
+    """
     owner = models.ForeignKey(WobblyUser, on_delete=models.CASCADE, related_name='owned_groups', related_query_name='owned_group')
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -44,19 +47,19 @@ class WobblyGroup(models.Model):
     users = models.ManyToManyField(WobblyUser, related_name='wobbly_groups', related_query_name='wobbly_group')
 
 
-"""
-Keyword for Posts
-"""
 class Keyword(models.Model):
+    """
+    Keyword for Posts
+    """
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     name = models.CharField(max_length=MAX_KEYWORD_NAME_LENGTH, primary_key=True)
 
 
-"""
-Forum Post
-"""
 class Post(models.Model):
+    """
+    Forum Post
+    """
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     title = models.CharField(max_length=MAX_POST_TITLE_LENGTH)
@@ -67,13 +70,14 @@ class Post(models.Model):
     keywords = models.ManyToManyField(Keyword, related_name='keywords', related_query_name='keyword')
 
 
-"""
-Post Comment
-"""
+
 class Comment(models.Model):
+    """
+    Post Comment
+    """
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     content = models.TextField()
     parent = models.ForeignKey('self', on_delete=models.CASCADE)
-    post = models.ForeignKey(Post, on_delete = models.CASCADE, related_name='comments', related_query_name='comment')
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments', related_query_name='comment')
     user = models.ForeignKey(WobblyUser, on_delete=models.CASCADE, related_name="comments", related_query_name='comment')

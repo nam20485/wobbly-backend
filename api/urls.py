@@ -1,7 +1,10 @@
-from django.conf.urls import include, url
+"""
+URL configuration for app-specific URLs
+"""
+from django.conf.urls import include
 from django.urls import path
 from graphene_django.views import GraphQLView
-from rest_framework import routers, serializers, viewsets
+from rest_framework import routers
 
 from api import views
 
