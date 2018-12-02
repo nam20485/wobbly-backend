@@ -1,5 +1,7 @@
 #! /bin/bash
 
-export DOCKER_IMAGE=wobbly-backend-image
-export DJANGO_SECRET_KEY=
-export DEBUG=True
+export DOCKER_IMAGE="wobbly-app-backend-image"
+export DOCKER_SERVICE="wobbly-app-backend-service"
+export DOCKER_LOGGING="json-file"
+
+export DJANGO_SECRET_KEY=""
