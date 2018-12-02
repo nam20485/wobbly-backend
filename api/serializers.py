@@ -3,8 +3,13 @@ Serializers for the models
 """
 
 from rest_framework import serializers
-
+from django.contrib.auth.models import Permission
 from api import models
+
+
+class PermissionSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Permission
 
 
 class WobblyUserSerializer(serializers.HyperlinkedModelSerializer):
@@ -14,6 +19,7 @@ class WobblyUserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = models.WobblyUser
         fields = '__all__'
+        #exclude = ('user_permissions',)
 
 
 class WobblyGroupSerializer(serializers.HyperlinkedModelSerializer):
@@ -50,3 +56,4 @@ class KeywordSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = models.Keyword
         fields = '__all__'
+        

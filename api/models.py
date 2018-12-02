@@ -14,6 +14,8 @@ MAX_GROUP_NAME_LENGTH = 255
 
 
 
+
+
 """
 Custom User implementation
 """
@@ -32,8 +34,8 @@ class WobblyUser(AbstractUser):
     bio = models.TextField(blank=True)
     image = models.ImageField(blank=True)
 
-    def __str__(self):
-        return self.email
+    #def __str__(self):
+    #    return self.email
 
 
 class WobblyGroup(models.Model):

@@ -14,6 +14,7 @@ router.register(r'groups', views.WobblyGroupViewSet)
 router.register(r'posts', views.PostViewSet)
 router.register(r'comments', views.CommentViewSet)
 router.register(r'keywords', views.KeywordViewSet)
+router.register(r'permission', views.PermissionViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
