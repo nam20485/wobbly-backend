@@ -1,4 +1,5 @@
 version: '3.4' 
+
 services:
 
   wobbly-app-backend-service:
@@ -10,6 +11,7 @@ services:
       - "8000:8000"
     volumes:
       - .:/code
+      - unix-domain-socket:/var/gunicorn
     environment:
       - DJANGO_SECRET_KEY
       - POSTGRES_USER=postgres
@@ -36,5 +38,10 @@ services:
       dockerfile: DOCKERFILE.nginx
     ports:
       - "80:80"
+    volumes:
+      - unix-domain-socket:/var/gunicorn
     depends_on:
       - wobbly-app-backend-service
+
+volumes:
+  unix-domain-socket:

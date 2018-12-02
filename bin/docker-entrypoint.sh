@@ -17,4 +17,4 @@ python manage.py collectstatic --noinput
 
 python manage.py migrate --noinput
 
-gunicorn backend.wsgi -c gunicorn_config.py
+gunicorn backend.wsgi -c gunicorn.conf.py

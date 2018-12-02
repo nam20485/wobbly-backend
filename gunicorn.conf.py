@@ -18,7 +18,7 @@
 #       range.
 #
 
-bind = ':8000'
+bind = ['unix:/var/gunicorn/.sock', ':8000']
 backlog = 2048
 
 #
@@ -87,6 +87,7 @@ backlog = 2048
 # except ImportError:
 #     pass
 
+workers = 4
 # worker_connections = 1000
 # timeout = 30
 # keepalive = 2
@@ -141,7 +142,7 @@ spew = False
 #
 
 daemon = False
-pidfile = None
+pidfile = '/var/gunicorn/.pid'
 umask = 0
 user = None
 group = None

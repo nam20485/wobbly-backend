@@ -9,6 +9,8 @@ RUN apt-get update && \
         postgresql-client-9.6=9.6.10-0+deb9u1 && \
     apt-get clean
 
+RUN mkdir /var/gunicorn
+
 RUN mkdir /code
 WORKDIR /code 
 
