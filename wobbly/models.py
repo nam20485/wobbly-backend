@@ -3,10 +3,6 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.models import AbstractUser
 
 
-def get_sentinel_user():
-    return get_user_model().objects.get_or_create(username='deleted')[0]
-
-
 class User(AbstractUser):
     """
     https://docs.djangoproject.com/en/2.1/topics/auth/customizing/#substituting-a-custom-user-model
@@ -55,7 +51,7 @@ class Message(models.Model):
     TODO: decide on whether we want a Slack-like or forum-like setup of threads/topics (or something entirely different)
     TODO: for each user, implement the last message they have seen in each node they're in
     """
-    user = models.ForeignKey(get_user_model(), on_delete=models.SET(get_sentinel_user()))
+    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)  # TODO: better on_delete
     group = models.ForeignKey(Node, on_delete=models.CASCADE)
     content = models.TextField()
     # TODO: editing a message (perhaps only within 10 minutes or so)
